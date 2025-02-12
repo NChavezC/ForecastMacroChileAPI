@@ -19,7 +19,7 @@ class Data(BaseModel):
 
 app = FastAPI(debug=True)
 
-origins = ["http://localhost:5173", "https://forecast-macro-chile.vercel.app/", "https://forecast-macro-chile-ds868djsp-nchavezs-projects.vercel.app/"]
+origins = ["*"]
 
 app.add_middleware(CORSMiddleware, allow_origins=origins, allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
 
