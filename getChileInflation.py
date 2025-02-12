@@ -2,7 +2,7 @@ import requests
 import pandas as pd
 
 # API URL
-url = "https://si3.bcentral.cl/SieteRestWS/SieteRestWS.ashx?user=gchavez@fen.uchile.cl&pass=qRSN5ktgn.K24SP&function=GetSeries&timeseries=F074.IPC.VAR.Z.Z.C.M&firstdate=2000-01-01&lastdate=2024-12-31"
+url = "https://si3.bcentral.cl/SieteRestWS/SieteRestWS.ashx?user=gchavez@fen.uchile.cl&pass=qRSN5ktgn.K24SP&function=GetSeries&timeseries=F074.IPC.VAR.Z.Z.C.M&firstdate=2022-01-01&lastdate=2024-12-31"
 
 # Function to fetch data
 def fetch_chile_inflation():

@@ -32,7 +32,7 @@ def get_docs():
 @app.post("/sarima", tags=["Models"])
 def forecast_sarima(data: Data):
     #Set Periods of Forecast
-    periods = 12
+    periods = 4
     # Convert input to DataFrame
     df = pd.DataFrame([{"date": d.date, "value": d.value} for d in data.data])
 
@@ -63,7 +63,7 @@ def forecast_sarima(data: Data):
 @app.post("/arima", tags=["Models"])
 def forecast_arima(data: Data):
     #Set Periods of Forecast
-    periods = 12
+    periods = 4
     # Convert input to DataFrame
     df = pd.DataFrame([{"date": d.date, "value": d.value} for d in data.data])
 
