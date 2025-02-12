@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import Response
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 from typing import List
 import pandas as pd
@@ -25,12 +25,12 @@ app.add_middleware(CORSMiddleware, allow_origins=origins, allow_credentials=True
 
 memory_db = {"data": []}
 
-@app.get("/data", response_model=Data)
-def get_data():
-    return Data(data=memory_db["data"])
+@app.get("/", tags=["Docs"])
+def get_docs():
+    return RedirectResponse("/docs")
 
-@app.post("/sarima")
-def add_data(data: Data):
+@app.post("/sarima", tags=["Models"])
+def forecast_sarima(data: Data):
     #Set Periods of Forecast
     periods = 12
     # Convert input to DataFrame
@@ -60,8 +60,8 @@ def add_data(data: Data):
 
     return forecast_data
 
-@app.post("/arima")
-def add_data(data: Data):
+@app.post("/arima", tags=["Models"])
+def forecast_arima(data: Data):
     #Set Periods of Forecast
     periods = 12
     # Convert input to DataFrame
